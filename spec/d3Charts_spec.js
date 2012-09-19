@@ -6,11 +6,12 @@ describe('d3Charts', function() {
 		chartsComponent = new d3Charts();
 	});
 
-	describe('render', function() {
+	describe('render() method', function() {
 		var renderedChart;
 
 		beforeEach(function() {
-			renderedChart = new d3Charts('body');
+			renderedChart = new d3Charts('#body');
+
 		});
 
 		it('should append an svg element to the DOM', function() {
