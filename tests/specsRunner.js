@@ -11,7 +11,8 @@ define(['jquery'], function ($) {
 
             //TODO: References all BDD/TDD Specs in here
             // #### core ####
-            , 'spec/behaviorCore'
+            , 'spec/behaviorD3Chart'
+            , 'unit/unitAxisModel'
             
         ], function () {
 
