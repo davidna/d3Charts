@@ -1,10 +1,10 @@
 define([
 
-	 '../../js/src/chart'
+	'../../js/src/chart'
 
 ], function (
 
-	  D3Chart
+    D3Chart
 
 ) {
 
@@ -23,25 +23,25 @@ define([
                 });
 
                 afterEach(function() {
-                  d3Chart.destroy();
-                  d3Chart = null;    
+                    d3Chart.destroy();
+                    d3Chart = null;    
                 });
 
                 it('should be an instance of D3Chart', function() {
-                  expect(d3Chart instanceof D3Chart).toBeTruthy();
+                    expect(d3Chart instanceof D3Chart).toBeTruthy();
                 });
 
                 it('when [d3Chart.setInWindow] is called, it sets window.d3Chart to the current object', function() {
-                  expect(window.d3Chart).not.toBeDefined();
-                  d3Chart.setInWindow();
+                    expect(window.d3Chart).not.toBeDefined();
+                    d3Chart.setInWindow();
 
-                  expect(window.d3Chart).toBe(d3Chart);
+                    expect(window.d3Chart).toBe(d3Chart);
                 });
 
                 it('when [destroy] is called, it sets window.d3Chart to [undefined]', function() {
-                  d3Chart.destroy();
+                    d3Chart.destroy();
 
-                  expect(window.d3Chart).not.toBeDefined();
+                    expect(window.d3Chart).not.toBeDefined();
                 });
             });
         });
