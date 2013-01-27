@@ -10,12 +10,12 @@ this wrapper should be specific for each type of chart
 
 Dependency Hierarchy
 
-d3.js 
-|
--- charts.js [d3Charts]
-	|
-	-- models [chart-type / reusable components]
-
-
-
-
+<ul>
+	d3.js
+	<li>
+		charts.js [d3Charts]
+		<ul>
+			<li>models [chart-type / reusable components]</li>
+		</ul>
+	</li>
+</ul>
