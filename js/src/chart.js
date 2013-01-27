@@ -1,23 +1,30 @@
 define([], function() {
-	var chart = window.chart || {}; // override object
+	var chart = function() {
+		
+		this.setInWindow = function() {
+			window.d3Chart = this;
+		};
 
-	chart.models = {}; // library of interface components
-	chart.graphs = []; // generated graphs (charts) on screen
+		this.destroy = function() {
+			window.d3Chart = undefined;
+		};
 
-	//window.chart = chart; // reset window object
+		// this.models = {}; // library of interface components
+		// this.graphs = []; // generated graphs (charts) on screen
 
-	// render multiple graphs in queue
-	chart.render = function() {
-	  // generate a chart per graph
-	  // push chart to chart.graphs
-	  // splice queue array    
-	};
-	chart.render.queue = [];
+		// // render multiple graphs in queue
+		// chart.render = function() {
+		//   // generate a chart per graph
+		//   // push chart to chart.graphs
+		//   // splice queue array    
+		// };
+		// chart.render.queue = [];
 
-	chart.addGraph = function(obj) {
-	  // create generate and callback functions
-	  // push graph to render queue
-	  // invoke render
+		// chart.addGraph = function(obj) {
+		//   // create generate and callback functions
+		//   // push graph to render queue
+		//   // invoke render
+		// };
 	};
 
 	return chart;
