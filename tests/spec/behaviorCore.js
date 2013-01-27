@@ -1,43 +1,29 @@
 define([
 
-	 '../../js/src/core'
-   // , 'models/userSettings'
-   // , 'models/trpcatmodel'
-   // , 'collections/seriesCollection'
-   // , 'collections/trpCollection'
-   // , 'collections/media'
-   // , 'tests/mockFunction'
-   // , 'collections/xlworksheets'
+	 '../../js/src/chart'
 
 ], function (
 
-	  Core
-	// , UserSettings
- //    , TRPCatModel
-	// , SeriesCollection
-	// , TRPCollection
- //    , MediaCollection
-	// , mockFunction
-    // , XLWorksheets
+	  D3Chart
 
 ) {
 
     var runBehaviorTests = function() {
 
-        describe('#### A/TDD: D3PO component expected behavior ####', function(){
+        describe('#### A/TDD: d3Chart component expected behavior ####', function(){
             it('verifying test engine: ', function() {
                 expect(true).toBeTruthy();
             });
 
             describe('--- Core ---', function() {
-                var core;
+                var d3Chart;
 
                 beforeEach(function() {
-                    core = new Core();
+                    d3Chart = new D3Chart();
                 });
 
                 afterEach(function() {
-                    //core.destroy();
+                    //d3Chart.destroy();
                 });
 
                 it('should be check if ')
