@@ -1,3 +1,7 @@
-d3po.models.legend = function() {
+define([ ], function() {
+	var d3ChartLegendModel = function() {
 
-};
+	};
+
+	return d3ChartLegendModel;
+});

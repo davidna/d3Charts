@@ -1,3 +1,7 @@
-d3po.models.axis = function() {
+define([ ], function() {
+	var d3ChartAxisModel = function() {
 
-};
+	};
+
+	return d3ChartAxisModel;
+});
