@@ -33,12 +33,17 @@ define([
 
                 it('when [d3Chart.setInWindow] is called, it sets window.d3Chart to the current object', function() {
                     expect(window.d3Chart).not.toBeDefined();
+                    
                     d3Chart.setInWindow();
 
                     expect(window.d3Chart).toBe(d3Chart);
                 });
 
                 it('when [destroy] is called, it sets window.d3Chart to [undefined]', function() {
+                    expect(window.d3Chart).not.toBeDefined();
+                    d3Chart.setInWindow();
+                    expect(window.d3Chart).toBe(d3Chart);
+
                     d3Chart.destroy();
 
                     expect(window.d3Chart).not.toBeDefined();
