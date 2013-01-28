@@ -88,6 +88,40 @@ define([
                     expect(axis.unit).toBe('px');
                 });
             });
+
+            describe('[destroy]', function() {
+                it('should exist as a method', function() {
+                    expect(axis.destroy).toBeDefined();
+                    expect(typeof axis.destroy).toBe('function');
+                });
+
+                it('should set all properties to [undefined]', function() {
+                    var options = {
+                        dimensions: 2
+                        , orientation: 'horizontal'
+                        , startAt: 0
+                        , endAt: 100
+                        , unit: 'px'
+                    };
+
+                    expect(axis.properties).not.toBeDefined();
+
+                    axis = new Axis(options);
+
+                    expect(axis.properties()).toBeDefined();
+                    console.log(axis.properties());
+                    expect(JSON.stringify(axis.properties())).toBe(JSON.stringify([2, "horizontal", 0, 100, "px"]));
+                    
+                    axis.destroy();
+
+                    expect(axis.properties).not.toBeDefined();
+                    expect(axis.dimensions).not.toBeDefined();
+                    expect(axis.orientation).not.toBeDefined();
+                    expect(axis.startAt).not.toBeDefined();
+                    expect(axis.endAt).not.toBeDefined();
+                    expect(axis.unit).not.toBeDefined();
+                });
+            });
         });
 	};
 
