@@ -9,6 +9,10 @@ define([ ], function() {
 			this.endAt = options.endAt;
 			this.unit = options.unit;
 		}
+
+		this.destroy = function() {
+
+		};
 	};
 
 	return d3ChartAxisModel;

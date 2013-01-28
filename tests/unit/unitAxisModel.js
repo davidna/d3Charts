@@ -25,7 +25,7 @@ define([
                 axis = new Axis();
             });
 
-            describe('new Axis() [constructor]', function() {
+            describe('[constructor]', function() {
                 it('should accept a JSON of options', function() {
                     var optionsJSON = {
                         dimensions: 2

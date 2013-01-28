@@ -59,12 +59,20 @@ define([
             });
 
             describe('--- d3Chart.models ---', function() {
-                it('should represent an [axis]', function() {
-                    var instanceOfAxis = new Axis();
+                
+                var instanceOfAxis = new Axis();
 
+                it('should represent an [axis]', function() {
                     expect(instanceOfAxis).toBeDefined();
                     expect(typeof instanceOfAxis).toBe('object');
                     expect(instanceOfAxis instanceof Axis).toBeTruthy();
+                });
+
+                describe('d3Chart.models.axis', function() {
+                    it('should have method [destroy]', function() {
+                        expect(instanceOfAxis.destroy).toBeDefined();
+                        expect(typeof instanceOfAxis.destroy).toBe('function');
+                    });
                 });
 
                 it('should represent a [legend]', function() {
