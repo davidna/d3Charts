@@ -73,6 +73,33 @@ define([
                         expect(instanceOfAxis.destroy).toBeDefined();
                         expect(typeof instanceOfAxis.destroy).toBe('function');
                     });
+
+                    it('when [destroy] is called, it sets all properties to [undefined]', function() {
+                        var options = {
+                            dimensions: 2
+                            , orientation: 'horizontal'
+                            , startAt: 0
+                            , endAt: 100
+                            , unit: 'px'
+                        };
+
+                        expect(instanceOfAxis.properties).not.toBeDefined();
+
+                        instanceOfAxis = new Axis(options);
+
+                        expect(instanceOfAxis.properties()).toBeDefined();
+                        console.log(instanceOfAxis.properties());
+                        expect(JSON.stringify(instanceOfAxis.properties())).toBe(JSON.stringify([2, "horizontal", 0, 100, "px"]));
+                        
+                        instanceOfAxis.destroy();
+
+                        expect(instanceOfAxis.properties).not.toBeDefined();
+                        expect(instanceOfAxis.dimensions).not.toBeDefined();
+                        expect(instanceOfAxis.orientation).not.toBeDefined();
+                        expect(instanceOfAxis.startAt).not.toBeDefined();
+                        expect(instanceOfAxis.endAt).not.toBeDefined();
+                        expect(instanceOfAxis.unit).not.toBeDefined();
+                    });
                 });
 
                 it('should represent a [legend]', function() {
