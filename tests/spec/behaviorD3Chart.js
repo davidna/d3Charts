@@ -62,7 +62,7 @@ define([
                         var oneArgumentJSON = { key: 'value' };
 
                         expect(function() { d3Chart.addModel(oneArgumentJSON); }).not.toThrow(new Error());
-                    })
+                    });
                 });
             });
 
