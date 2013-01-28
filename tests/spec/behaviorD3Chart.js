@@ -18,7 +18,7 @@ define([
 
     var runBehaviorTests = function() {
 
-        describe('#### A/TDD: d3Chart component expected behavior ####', function(){
+        describe('#### Behavior: d3Chart (core-component) ####', function(){
             it('verifying test engine: ', function() {
                 expect(true).toBeTruthy();
             });

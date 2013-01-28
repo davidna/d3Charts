@@ -16,55 +16,79 @@ define([
 
 ) {
 
-    var runBehaviorTests = function() {
+    var runUnitTests = function() {
 
-        describe('#### U/TDD: Axis component expected work-units ####', function(){
-            it('verifying test engine: ', function() {
-                expect(true).toBeTruthy();
+        describe('#### Unit: d3Chart.models.axis (Axis component) ####', function(){
+            var axis;
+
+            beforeEach(function() {
+                axis = new Axis();
             });
 
-            describe('--- d3Chart.models.axis ---', function() {
-                var axis;
+            it('should accept a JSON of options', function() {
+                var optionsJSON = {
+                    dimensions: 2
+                    , orientation: 'horizontal'
+                    , startAt: 0
+                    , endAt: 100
+                    , unit: 'px'
+                };
 
-                beforeEach(function() {
-                    axis = new Axis();
-                });
+                expect(function() { axis = new Axis(optionsJSON); }).not.toThrow(new Error());
+            });
 
-                it('should accept a JSON of options', function() {
-                    var optionsJSON = {
-                        dimensions: 2
-                        , orientation: 'horizontal'
-                        , start: 0
-                        , end: 100
-                        , unit: 'px'
-                    };
+            it('given optionsJSON with [dimensions:2], should fill its property [dimensions] with value [2]', function() {
+                var optionsJSON = {
+                    dimensions: 2
+                };
 
-                    expect(function() { axis = new Axis(optionsJSON); }).not.toThrow(new Error());
-                });
+                axis = new Axis(optionsJSON);
 
-                it('given optionsJSON with [dimensions:2], should fill its property [dimensions] with value [2]', function() {
-                    var optionsJSON = {
-                        dimensions: 2
-                    };
+                expect(axis.dimensions).toBe(2);
+            });
 
-                    axis = new Axis(optionsJSON);
+            it('given optionsJSON with [orientation: \'horizontal\'], should fill its property [orientation] with value [\'horizontal\']', function() {
+                var optionsJSON = {
+                    orientation: 'horizontal'
+                };
 
-                    expect(axis.dimensions).toBe(2);
-                });
+                axis = new Axis(optionsJSON);
 
-                it('given optionsJSON with [orientation: \'horizontal\'], should fill its property [orientation] with value [\'horizontal\']', function() {
-                    var optionsJSON = {
-                        orientation: 'horizontal'
-                    };
+                expect(axis.orientation).toBe('horizontal');
+            });
 
-                    axis = new Axis(optionsJSON);
+            it('given optionsJSON with [startAt: 0], should fill its property [startAt] with value [0]', function() {
+                var optionsJSON = {
+                    startAt: 0
+                };
 
-                    expect(axis.orientation).toBe('horizontal');
-                });
+                axis = new Axis(optionsJSON);
+
+                expect(axis.startAt).toBe(0);
+            });
+
+            it('given optionsJSON with [endAt: 100], should fill its property [endAt] with value [100]', function() {
+                var optionsJSON = {
+                    endAt: 100
+                };
+
+                axis = new Axis(optionsJSON);
+
+                expect(axis.endAt).toBe(100);
+            });
+
+            it('given optionsJSON with [unit: \'px\'], should fill its property [unit] with value [\'px\']', function() {
+                var optionsJSON = {
+                    unit: 'px'
+                };
+
+                axis = new Axis(optionsJSON);
+
+                expect(axis.unit).toBe('px');
             });
         });
 
 	};
 
-return { run: runBehaviorTests};
+return { run: runUnitTests};
 });
