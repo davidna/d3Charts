@@ -1,18 +1,18 @@
 define([
 
 	'../../js/src/chart'
-    // , '../../js/src/models/axis'
-    // , '../../js/src/models/legend'
-    // , '../../js/src/models/bar'
-    // , '../../js/src/models/barChart'
+    , '../../js/src/models/axis'
+    , '../../js/src/models/legend'
+    , '../../js/src/models/bar'
+    , '../../js/src/models/barChart'
 
 ], function (
 
     D3Chart
-    // , Axis
-    // , Legend
-    // , Bar
-    // , BarChart
+    , Axis
+    , Legend
+    , Bar
+    , BarChart
 
 ) {
 
@@ -26,10 +26,37 @@ define([
             });
 
             describe('[addModel]', function () {
-                it('should exist as a method', function() {
+                it('|---- exists as a method', function() {
                     expect(d3Chart.addModel).toBeDefined();
                     expect(typeof d3Chart.addModel).toBe('function');
                 });
+
+                describe('|---- argument validation: ', function() {
+                    it('accepts a d3Chart.models.axis [object] argument', function() {
+                        var axis = new Axis();
+
+                        expect(function() { d3Chart.addModel(axis); }).not.toThrow(new Error());
+                    });
+
+                    it('accepts a d3Chart.models.bar [object] argument', function() {
+                        var bar = new Bar();
+
+                        expect(function() { d3Chart.addModel(bar); }).not.toThrow(new Error());
+                    });
+
+                    it('accepts a d3Chart.models.barChart [object] argument', function() {
+                        var barChart = new BarChart();
+
+                        expect(function() { d3Chart.addModel(barChart); }).not.toThrow(new Error());
+                    });
+
+                    it('accepts a d3Chart.models.legend [object] argument', function() {
+                        var legend = new Legend();
+
+                        expect(function() { d3Chart.addModel(legend); }).not.toThrow(new Error());
+                    });
+                });
+                
             });
 
             // describe('[constructor]', function() {
