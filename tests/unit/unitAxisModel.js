@@ -51,6 +51,16 @@ define([
 
                     expect(axis.dimensions).toBe(2);
                 });
+
+                it('given optionsJSON with [orientation: \'horizontal\'], should fill its property [orientation] with value [\'horizontal\']', function() {
+                    var optionsJSON = {
+                        orientation: 'horizontal'
+                    };
+
+                    axis = new Axis(optionsJSON);
+
+                    expect(axis.orientation).toBe('horizontal');
+                });
             });
         });
 

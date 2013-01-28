@@ -4,6 +4,7 @@ define([ ], function() {
 
 		if (options) {
 			this.dimensions = options.dimensions;
+			this.orientation = options.orientation;
 		}
 	};
 
