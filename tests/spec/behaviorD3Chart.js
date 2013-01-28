@@ -56,6 +56,14 @@ define([
 
                     expect(window.d3Chart).not.toBeDefined();
                 });
+
+                describe('[addModel] method', function() {
+                    it('accepts a JSON argument', function() {
+                        var oneArgumentJSON = { key: 'value' };
+
+                        expect(function() { d3Chart.addModel(oneArgumentJSON); }).not.toThrow(new Error());
+                    })
+                });
             });
 
             describe('--- d3Chart.models ---', function() {

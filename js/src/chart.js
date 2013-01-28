@@ -1,6 +1,8 @@
 define([], function() {
 	var chart = function() {
 		
+		this.models = []; // library of interface components
+
 		this.setInWindow = function() {
 			window.d3Chart = this;
 		};
@@ -9,7 +11,13 @@ define([], function() {
 			window.d3Chart = undefined;
 		};
 
-		// this.models = {}; // library of interface components
+		this.addModel = function (modelJSON) {
+			console.log(typeof modelJSON);
+			console.log(modelJSON);
+
+			// this.models.push(modelJSON);
+		};
+		
 		// this.graphs = []; // generated graphs (charts) on screen
 
 		// // render multiple graphs in queue

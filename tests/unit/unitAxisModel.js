@@ -109,7 +109,6 @@ define([
                     axis = new Axis(options);
 
                     expect(axis.properties()).toBeDefined();
-                    console.log(axis.properties());
                     expect(JSON.stringify(axis.properties())).toBe(JSON.stringify([2, "horizontal", 0, 100, "px"]));
                     
                     axis.destroy();
