@@ -11,11 +11,11 @@ define([], function() {
 			window.d3Chart = undefined;
 		};
 
-		this.addModel = function (modelJSON) {
-			console.log(typeof modelJSON);
-			console.log(modelJSON);
+		this.addModel = function (model) {
+			//console.log(typeof model);
+			//console.log(model);
 
-			// this.models.push(modelJSON);
+			this.models.push(model);
 		};
 		
 		// this.graphs = []; // generated graphs (charts) on screen
