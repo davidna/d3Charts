@@ -13,7 +13,7 @@ this wrapper should be specific for each type of chart
 Dependency Hierarchy
 
 <ul>
-	d3.js
+	d3.js [currently v2]
 	<li>
 		charts.js [d3Charts]
 		<ul>
