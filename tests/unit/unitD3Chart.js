@@ -169,6 +169,7 @@ define([
                 });
 
                 it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends the identified model (HTML-friendly) to the selected-dom-element', function () {
+                    // prep: d3Chart.models.length > 0
                     var optionsJSON = {
                         dimensions: 2
                         , orientation: 'horizontal'
@@ -181,6 +182,7 @@ define([
 
                     d3Chart.addModel(axis);
 
+                    // test scope: d3Chart.render
                     optionsJSON = {
                         selector: '.componentContainer'
                         , itemIndex: 0
@@ -200,7 +202,8 @@ define([
                     console.log(beforeRenderInnerMarkup);
                     console.log(afterRenderInnerMarkup);
 
-
+                    // verify
+                    expect(beforeRenderInnerMarkup).not.toBe(afterRenderInnerMarkup);
                 });
             });
         });

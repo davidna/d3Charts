@@ -39,6 +39,8 @@ define([], function() {
 
 					console.log('selectedItem: ', selectedItem);
 					console.log('selectedModel: ', selectedModel);	
+
+					selectedItem.innerHTML = selectedModel.toString();
 				}
 			}
 		}
