@@ -68,6 +68,7 @@ requirejs.config({
         , 'jasmineTeamcity': ['jasmine']
         
         // , 'app'    : ['jquery', 'jqueryui', 'backbone', 'marionette', 'handlebars', 'nvd3', 'xlsx', 'jszip', 'svgToDataURL', 'canvg', 'rgbcolor']
+        , 'specsRunner' : ['d3']
 
     }
 

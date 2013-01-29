@@ -101,7 +101,7 @@ define([
                 });
             });
 
-            describe('[addModel]', function () {
+            describe('[addModel]', function() {
                 it('|---- exists as a method', function() {
                     expect(d3Chart.addModel).toBeDefined();
                     expect(typeof d3Chart.addModel).toBe('function');
@@ -151,7 +151,57 @@ define([
                         expect(d3Chart.models[3]).toBe(legend);
                     });
                 });
-                
+            });
+
+            describe('[render]', function() {
+                it('given optionsJSON with [selector: { string }], it calls d3.selectAll({ string })', function() {
+                    var optionsJSON = {
+                        selector: '.componentContainer'
+                    };
+
+                    spyOn(d3, 'selectAll');
+
+                    d3Chart.render(optionsJSON);
+
+                    expect(d3.selectAll).toHaveBeenCalledWith(optionsJSON.selector);
+
+                    d3.selectAll.reset();
+                });
+
+                it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends the identified model (HTML-friendly) to the selected-dom-element', function () {
+                    var optionsJSON = {
+                        dimensions: 2
+                        , orientation: 'horizontal'
+                        , startAt: 0
+                        , endAt: 100
+                        , unit: 'px'
+                    };
+
+                    var axis = new Axis(optionsJSON);
+
+                    d3Chart.addModel(axis);
+
+                    optionsJSON = {
+                        selector: '.componentContainer'
+                        , itemIndex: 0
+                        , modelIndex: 0
+                    };
+
+                    var jQueryReferenceToDOMElement = $(optionsJSON.selector);
+
+                    console.log(jQueryReferenceToDOMElement);
+
+                    var beforeRenderInnerMarkup = jQueryReferenceToDOMElement.html();
+
+                    d3Chart.render(optionsJSON);
+
+                    var afterRenderInnerMarkup = $(optionsJSON.selector).html();
+
+                    console.log(beforeRenderInnerMarkup);
+                    console.log(afterRenderInnerMarkup);
+
+
+                });
             });
         });
 	};

@@ -99,6 +99,14 @@ define([
                         expect(function() { d3Chart.addModel(oneArgumentJSON); }).not.toThrow(new Error());
                     });
                 });
+
+                describe('[render] method', function() {
+                    it('accepts a JSON argument', function() {
+                        var oneArgumentJSON = { key: 'value' };
+
+                        expect(function() { d3Chart.render(oneArgumentJSON); }).not.toThrow(new Error());
+                    });
+                });
             });
         });
 	};

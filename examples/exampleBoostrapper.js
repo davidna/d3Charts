@@ -1,12 +1,12 @@
 define(['d3'
 	, 'd3Chart'
+	, 'axis'
 ], function (d3
 	, D3Chart
+	, Axis
 ) {
-	var d3Chart = new D3Chart();
-	d3Chart.setInWindow();
 
-    var executeBootstrap = function (d3, d3Chart) {
+    var executeBootstrap = function (d3) {
 
     	var d3Loaded = (typeof d3 != 'undefined') && (typeof d3 =='object');
     	
@@ -24,8 +24,23 @@ define(['d3'
 
 		    	console.log('example counts: ', children.length);
 
-		    	// load first example: line(300x2, black)
+		    	// load first example: axis
+		    	var firstExampleAxis = new Axis();
 
+		    	var d3Chart = new D3Chart();
+		    	d3Chart.addModel(firstExampleAxis);
+
+		    	var firstExampleContainerSelector = '.componentContainer';
+		    	var idOfModel = 1;
+		    	var idOfChartWithinDOM = 'firstChart';
+
+		    	var options = {
+		    		selector: firstExampleContainerSelector
+		    		, modelIndex: idOfModel
+		    		, idDOM: idOfChartWithinDOM
+		    	};
+
+		    	d3Chart.render(options);
 	    	}
 	    	
     	} else {

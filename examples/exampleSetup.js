@@ -24,6 +24,10 @@ requirejs.config({
         , 'd3'         : '../js/lib/d3/d3.v2'
         //, 'nvd3'    : 'libs/nvd3/nv.d3'
 
+        // d3Chart
+        , 'd3Chart' : '../js/src/chart'
+        , 'axis'    : '../js/src/models/axis'
+
         // export Image
         //, 'canvg' : 'libs/canvg/canvg'
         //, 'rgbcolor': 'libs/rgbcolor/rgbcolor'
@@ -52,6 +56,7 @@ requirejs.config({
 
     // Defines dependencies (effectively sets the loading orders)
     , shim: {
+        'exampleBoostrapper'    : ['d3', 'd3Chart', 'axis']
         // 'backbone': ['underscore', 'jquery'] 
         // , 'marionette' : ['backbone']
         // , 'jqueryui': ['jquery']

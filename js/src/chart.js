@@ -24,6 +24,24 @@ define([], function() {
 
 			this.models.push(model);
 		};
+
+		this.render = function(options) {
+			if (options) {
+				console.log('options: ', options);
+
+				var selectedArray = d3.selectAll(options.selector);
+
+				//console.log('selected: ', selectedArray ? selectedArray.length : 'empty');
+
+				if (selectedArray) {
+					var selectedItem = selectedArray[options.itemIndex];
+					var selectedModel = this.models[options.modelIndex];
+
+					console.log('selectedItem: ', selectedItem);
+					console.log('selectedModel: ', selectedModel);	
+				}
+			}
+		}
 		
 		// this.graphs = []; // generated graphs (charts) on screen
 
