@@ -138,22 +138,25 @@ define([
                     });
                 });
                 
-                it('given a d3Chart.model, adds the argument to its property [models]', function() {
-                    var axis = new Axis();
-                    var bar = new Bar();
-                    var barChart = new BarChart();
-                    var legend = new Legend();
-                    
-                    d3Chart.addModel(axis);
-                    d3Chart.addModel(bar);
-                    d3Chart.addModel(barChart);
-                    d3Chart.addModel(legend);
-                    
-                    expect(d3Chart.models[0]).toBe(axis);  
-                    expect(d3Chart.models[1]).toBe(bar);
-                    expect(d3Chart.models[2]).toBe(barChart);
-                    expect(d3Chart.models[3]).toBe(legend);
+                describe('|---- actual work: ', function() {
+                    it('given a d3Chart.model, adds the argument to its property [models]', function() {
+                        var axis = new Axis();
+                        var bar = new Bar();
+                        var barChart = new BarChart();
+                        var legend = new Legend();
+                        
+                        d3Chart.addModel(axis);
+                        d3Chart.addModel(bar);
+                        d3Chart.addModel(barChart);
+                        d3Chart.addModel(legend);
+                        
+                        expect(d3Chart.models[0]).toBe(axis);  
+                        expect(d3Chart.models[1]).toBe(bar);
+                        expect(d3Chart.models[2]).toBe(barChart);
+                        expect(d3Chart.models[3]).toBe(legend);
+                    });
                 });
+                
             });
         });
 	};

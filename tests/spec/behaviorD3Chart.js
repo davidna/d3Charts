@@ -23,6 +23,41 @@ define([
                 expect(true).toBeTruthy();
             });
 
+            describe('--- d3Chart.models ---', function() {
+                
+                var instanceOfAxis = new Axis();
+
+                it('should represent an [axis]', function() {
+                    expect(instanceOfAxis).toBeDefined();
+                    expect(typeof instanceOfAxis).toBe('object');
+                    expect(instanceOfAxis instanceof Axis).toBeTruthy();
+                });
+
+                it('should represent a [legend]', function() {
+                    var instanceOfLegend = new Legend();
+
+                    expect(instanceOfLegend).toBeDefined();
+                    expect(typeof instanceOfLegend).toBe('object');
+                    expect(instanceOfLegend instanceof Legend).toBeTruthy();
+                });
+
+                it('should represent a [bar]', function() {
+                    var instanceOfBar = new Bar();
+
+                    expect(instanceOfBar).toBeDefined();
+                    expect(typeof instanceOfBar).toBe('object');
+                    expect(instanceOfBar instanceof Bar).toBeTruthy();
+                });
+
+                it('should represent a [barChart]', function() {
+                    var instanceOfBarChart = new BarChart();
+
+                    expect(instanceOfBarChart).toBeDefined();
+                    expect(typeof instanceOfBarChart).toBe('object');
+                    expect(instanceOfBarChart instanceof BarChart).toBeTruthy();
+                });
+            });
+
             describe('--- d3Chart ---', function() {
                 var d3Chart;
 
@@ -65,43 +100,7 @@ define([
                     });
                 });
             });
-
-            describe('--- d3Chart.models ---', function() {
-                
-                var instanceOfAxis = new Axis();
-
-                it('should represent an [axis]', function() {
-                    expect(instanceOfAxis).toBeDefined();
-                    expect(typeof instanceOfAxis).toBe('object');
-                    expect(instanceOfAxis instanceof Axis).toBeTruthy();
-                });
-
-                it('should represent a [legend]', function() {
-                    var instanceOfLegend = new Legend();
-
-                    expect(instanceOfLegend).toBeDefined();
-                    expect(typeof instanceOfLegend).toBe('object');
-                    expect(instanceOfLegend instanceof Legend).toBeTruthy();
-                });
-
-                it('should represent a [bar]', function() {
-                    var instanceOfBar = new Bar();
-
-                    expect(instanceOfBar).toBeDefined();
-                    expect(typeof instanceOfBar).toBe('object');
-                    expect(instanceOfBar instanceof Bar).toBeTruthy();
-                });
-
-                it('should represent a [barChart]', function() {
-                    var instanceOfBarChart = new BarChart();
-
-                    expect(instanceOfBarChart).toBeDefined();
-                    expect(typeof instanceOfBarChart).toBe('object');
-                    expect(instanceOfBarChart instanceof BarChart).toBeTruthy();
-                });
-            });
         });
-
 	};
 
 return { run: runBehaviorTests};
