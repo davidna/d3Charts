@@ -1,5 +1,12 @@
 define([], function() {
-	var chart = function() {
+	var chart = function(options) {
+
+		if (options) {
+			this.dimensions = options.dimensions;
+			this.width = options.width;
+			this.height = options.height;
+			this.unit = options.unit;
+		}
 		
 		this.models = []; // library of interface components
 

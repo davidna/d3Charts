@@ -43,37 +43,31 @@ define([
 
             describe('[constructor]', function() {
                 it('should accept a JSON of options', function() {
-                    expect(function() { axis = new Axis(optionsJSON); }).not.toThrow(new Error());
+                    expect(function() { d3Chart = new D3Chart(optionsJSON); }).not.toThrow(new Error());
                 });
 
                 it('given optionsJSON with [dimensions:2], should fill its property [dimensions] with value [2]', function() {
-                    axis = new Axis(optionsJSON);
+                    d3Chart = new D3Chart(optionsJSON);
 
-                    expect(axis.dimensions).toBe(2);
+                    expect(d3Chart.dimensions).toBe(2);
                 });
 
-                // it('given optionsJSON with [orientation: \'horizontal\'], should fill its property [orientation] with value [\'horizontal\']', function() {
-                //     axis = new Axis(optionsJSON);
-
-                //     expect(axis.orientation).toBe('horizontal');
-                // });
-
                 it('given optionsJSON with [width: 300], should fill its property [width] with value [300]', function() {
-                    axis = new Axis(optionsJSON);
+                    d3Chart = new D3Chart(optionsJSON);
 
-                    expect(axis.width).toBe(300);
+                    expect(d3Chart.width).toBe(300);
                 });
 
                 it('given optionsJSON with [height: 200], should fill its property [height] with value [200]', function() {
-                    axis = new Axis(optionsJSON);
+                    d3Chart = new D3Chart(optionsJSON);
 
-                    expect(axis.height).toBe(200);
+                    expect(d3Chart.height).toBe(200);
                 });
 
                 it('given optionsJSON with [unit: \'px\'], should fill its property [unit] with value [\'px\']', function() {
-                    axis = new Axis(optionsJSON);
+                    d3Chart = new D3Chart(optionsJSON);
 
-                    expect(axis.unit).toBe('px');
+                    expect(d3Chart.unit).toBe('px');
                 });
             });
 
@@ -87,24 +81,23 @@ define([
                 });
 
                 it('should exist as a method', function() {
-                    expect(axis.destroy).toBeDefined();
-                    expect(typeof axis.destroy).toBe('function');
+                    expect(d3Chart.destroy).toBeDefined();
+                    expect(typeof d3Chart.destroy).toBe('function');
                 });
 
                 it('should set all properties to [undefined]', function() {
-                    axis = new Axis(optionsJSON);
+                    d3Chart = new Axis(optionsJSON);
 
-                    expect(axis.properties()).toBeDefined();
-                    expect(JSON.stringify(axis.properties())).toBe(JSON.stringify([2, "horizontal", 0, 100, "px"]));
+                    expect(d3Chart.properties()).toBeDefined();
+                    expect(JSON.stringify(d3Chart.properties())).toBe(JSON.stringify([2, "horizontal", 0, 100, "px"]));
                     
-                    axis.destroy();
+                    d3Chart.destroy();
 
-                    expect(axis.properties).not.toBeDefined();
-                    expect(axis.dimensions).not.toBeDefined();
-                    expect(axis.orientation).not.toBeDefined();
-                    expect(axis.startAt).not.toBeDefined();
-                    expect(axis.endAt).not.toBeDefined();
-                    expect(axis.unit).not.toBeDefined();
+                    expect(d3Chart.properties).not.toBeDefined();
+                    expect(d3Chart.dimensions).not.toBeDefined();
+                    expect(d3Chart.width).not.toBeDefined();
+                    expect(d3Chart.height).not.toBeDefined();
+                    expect(d3Chart.unit).not.toBeDefined();
                 });
             });
 
