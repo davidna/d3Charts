@@ -17,7 +17,16 @@ Dependency Hierarchy
 	<li>
 		charts.js [d3Charts]
 		<ul>
-			<li>models [chart-type / reusable components]</li>
+			<li>
+				models [chart-type / reusable components]
+				<ul>
+					[starting: basic bar-chart]
+					<li>axis.js</li>
+					<li>bar.js</li>
+					<li>barChart.js</li>
+					<li>legend.js</li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 </ul>
