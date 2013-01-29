@@ -10,7 +10,7 @@ requirejs.config({
         'text': '../js/lib/require/require-text.min'
         
         //, 'datejs': 'libs/datepicker/js/date'
-        , 'jquery': 'jquery/jquery.min'
+        , 'jquery': 'lib/jquery/jquery.min'
         // , 'jqueryui':'libs/jquery/jquery-ui.min'
         // , 'jquerybbq': 'libs/jquery/jquery-bbq.min'
         // , 'doubletap': 'libs/jquery/jqueryui/doubletap'
@@ -40,10 +40,10 @@ requirejs.config({
 
         //test suite
         // , 'simulate': 'libs/jquery/simulate'
-        , 'sinon': 'sinon/sinon-1.3.4'
-        , 'jasmine': 'jasmine/jasmine'
-        , 'jasmineHtml': 'jasmine/jasmine-html'
-        , 'jasmineTeamcity': 'jasmine/jasmine.teamcity_reporter'
+        , 'sinon': 'lib/sinon/sinon-1.3.4'
+        , 'jasmine': 'lib/jasmine/jasmine'
+        , 'jasmineHtml': 'lib/jasmine/jasmine-html'
+        , 'jasmineTeamcity': 'lib/jasmine/jasmine.teamcity_reporter'
         //, 'specsRunner': 'specsRunner'        
 
         // , 'templates': '../templates'
