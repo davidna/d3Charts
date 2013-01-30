@@ -29,8 +29,6 @@ define([ ], function() {
 
 			this.properties = undefined;
 		};
-
-		
 	};
 
 	return d3ChartAxisModel;

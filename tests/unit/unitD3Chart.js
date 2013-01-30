@@ -154,84 +154,94 @@ define([
             });
 
             describe('[render]', function() {
-                it('given optionsJSON with [selector: { string }], it calls d3.selectAll({ string })', function() {
-                    var optionsJSON = {
-                        selector: '.componentContainer'
-                    };
 
-                    spyOn(d3, 'selectAll');
-
-                    d3Chart.render(optionsJSON);
-
-                    expect(d3.selectAll).toHaveBeenCalledWith(optionsJSON.selector);
-
-                    d3.selectAll.reset();
+                it('|---- exists as a method', function() {
+                    expect(d3Chart.render).toBeDefined();
+                    expect(typeof d3Chart.render).toBe('function');
                 });
 
-                it('given optionsJSON with [width: { integer }, height: { integer }], calls method [setWidth, setHeight] with respective values', function() {
-                    var optionsJSON = {
-                        width: 900
-                        , height: 500
-                    }
+                describe('|---- argument triggers work:', function() {
+                    it('given optionsJSON with [selector: { string }], it calls d3.selectAll({ string })', function() {
+                        var optionsJSON = {
+                            selector: '.componentContainer'
+                        };
 
-                    spyOn(d3Chart, 'setWidth');
-                    spyOn(d3Chart, 'setHeight');
+                        spyOn(d3, 'selectAll');
 
-                    d3Chart.render(optionsJSON);
+                        d3Chart.render(optionsJSON);
 
-                    expect(d3Chart.setWidth).toHaveBeenCalledWith(optionsJSON.width);
-                    expect(d3Chart.setHeight).toHaveBeenCalledWith(optionsJSON.height);
+                        expect(d3.selectAll).toHaveBeenCalledWith(optionsJSON.selector);
+
+                        d3.selectAll.reset();
+                    });
+
+                    it('given optionsJSON with [width: { integer }, height: { integer }], calls method [setWidth, setHeight] with respective values', function() {
+                        var optionsJSON = {
+                            width: 900
+                            , height: 500
+                        }
+
+                        spyOn(d3Chart, 'setWidth');
+                        spyOn(d3Chart, 'setHeight');
+
+                        d3Chart.render(optionsJSON);
+
+                        expect(d3Chart.setWidth).toHaveBeenCalledWith(optionsJSON.width);
+                        expect(d3Chart.setHeight).toHaveBeenCalledWith(optionsJSON.height);
+                    });
+
+                    it('given optionsJSON with [margins: { top: { integer }, right: { integer }, bottom: { integer }, left: { integer} } ], it calls method [setMargins] with the margin JSON', function() {
+                        var optionsJSON = {
+                            margins: { top: 0, right: 0, bottom: 0, left: 0 }
+                        };
+
+                        spyOn(d3Chart, 'setMargins');
+
+                        d3Chart.render(optionsJSON);
+
+                        expect(d3Chart.setMargins).toHaveBeenCalledWith(optionsJSON.margins);
+                    });
+
+                    it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends the identified model (HTML-friendly) to the selected-dom-element', function () {
+                        // prep: d3Chart.models.length > 0
+                        var optionsJSON = {
+                            dimensions: 2
+                            , orientation: 'horizontal'
+                            , startAt: 0
+                            , endAt: 100
+                            , unit: 'px'
+                        };
+
+                        var axis = new Axis(optionsJSON);
+
+                        d3Chart.addModel(axis);
+
+                        // test scope: d3Chart.render
+                        optionsJSON = {
+                            selector: '.componentContainer'
+                            , itemIndex: 0
+                            , modelIndex: 0
+                        };
+
+                        var jQueryReferenceToDOMElement = $(optionsJSON.selector);
+
+                        console.log(jQueryReferenceToDOMElement);
+
+                        var beforeRenderInnerMarkup = jQueryReferenceToDOMElement.html();
+
+                        d3Chart.render(optionsJSON);
+
+                        var afterRenderInnerMarkup = $(optionsJSON.selector).html();
+
+                        console.log(beforeRenderInnerMarkup);
+                        console.log(afterRenderInnerMarkup);
+
+                        // verify
+                        expect(beforeRenderInnerMarkup).not.toBe(afterRenderInnerMarkup);
+                    });
                 });
 
-                it('given optionsJSON with [margins: { top: { integer }, right: { integer }, bottom: { integer }, left: { integer} } ], it calls method [setMargins] with the margin JSON', function() {
-                    var optionsJSON = {
-                        margins: { top: 0, right: 0, bottom: 0, left: 0 }
-                    };
-
-                    spyOn(d3Chart, 'setMargins');
-
-                    d3Chart.render(optionsJSON);
-
-                    expect(d3Chart.setMargins).toHaveBeenCalledWith(optionsJSON.margins);
-                });
-
-                // it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends the identified model (HTML-friendly) to the selected-dom-element', function () {
-                //     // prep: d3Chart.models.length > 0
-                //     var optionsJSON = {
-                //         dimensions: 2
-                //         , orientation: 'horizontal'
-                //         , startAt: 0
-                //         , endAt: 100
-                //         , unit: 'px'
-                //     };
-
-                //     var axis = new Axis(optionsJSON);
-
-                //     d3Chart.addModel(axis);
-
-                //     // test scope: d3Chart.render
-                //     optionsJSON = {
-                //         selector: '.componentContainer'
-                //         , itemIndex: 0
-                //         , modelIndex: 0
-                //     };
-
-                //     var jQueryReferenceToDOMElement = $(optionsJSON.selector);
-
-                //     console.log(jQueryReferenceToDOMElement);
-
-                //     var beforeRenderInnerMarkup = jQueryReferenceToDOMElement.html();
-
-                //     d3Chart.render(optionsJSON);
-
-                //     var afterRenderInnerMarkup = $(optionsJSON.selector).html();
-
-                //     console.log(beforeRenderInnerMarkup);
-                //     console.log(afterRenderInnerMarkup);
-
-                //     // verify
-                //     expect(beforeRenderInnerMarkup).not.toBe(afterRenderInnerMarkup);
-                // });
+                
             });
         });
 	};

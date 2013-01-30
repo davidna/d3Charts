@@ -43,9 +43,13 @@ define([], function() {
 						var selectedModel = this.models[options.modelIndex];
 
 						console.log('selectedItem: ', selectedItem);
-						console.log('selectedModel: ', selectedModel);	
+						console.log('selectedModel: ', selectedModel);
 
-						selectedItem.innerHTML = selectedModel.toString();
+						//selectedItem.innerHTML = selectedModel.toString();
+
+						var d3Item = d3.select(selectedItem).append('svg');
+
+						console.log(d3Item);
 					}
 				}
 			}

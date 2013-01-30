@@ -106,6 +106,20 @@ define([
 
                         expect(function() { d3Chart.render(oneArgumentJSON); }).not.toThrow(new Error());
                     });
+
+                    it('should be used  by adding a model and then calling it', function() {
+                        var axisModelOptions = {
+                        };
+
+                        var axisModel = new Axis(axisModelOptions);
+
+                        d3Chart.addModel(axisModel);
+
+                        var renderOptions = {
+                        };
+
+                        expect(function() { d3Chart.render(renderOptions); }).not.toThrow(new Error());
+                    });
                 });
             });
         });
