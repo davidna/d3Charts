@@ -225,19 +225,23 @@ define([
 
                         var jQueryReferenceToDOMElement = $(optionsJSON.selector);
 
-                        console.log(jQueryReferenceToDOMElement);
+                        //console.log(jQueryReferenceToDOMElement);
 
                         var beforeRenderInnerMarkup = jQueryReferenceToDOMElement.html();
 
                         d3Chart.render(optionsJSON);
 
-                        var afterRenderInnerMarkup = $(optionsJSON.selector).html();
+                        var afterRenderInnerMarkup = $(optionsJSON.selector).html().trim();
 
-                        console.log(beforeRenderInnerMarkup);
-                        console.log(afterRenderInnerMarkup);
+                        //console.log(beforeRenderInnerMarkup);
+                        //console.log(afterRenderInnerMarkup);
 
                         // verify
                         expect(beforeRenderInnerMarkup).not.toBe(afterRenderInnerMarkup);
+
+                        var shouldBeSVGElement = afterRenderInnerMarkup.substring(0, 4);
+                        console.log(shouldBeSVGElement);
+                        expect(shouldBeSVGElement).toBe('<svg');
                     });
                 });
 
