@@ -45,11 +45,31 @@ define([], function() {
 						console.log('selectedItem: ', selectedItem);
 						console.log('selectedModel: ', selectedModel);
 
-						//selectedItem.innerHTML = selectedModel.toString();
+						var chart = d3.select(options.selector)
+						.append('svg')
+						.attr('class', 'chart')
+						.attr('width', this.width)
+						.attr('height', this.height);
 
-						var d3Item = d3.select(selectedItem).append('svg');
+						var fakeData = [10, 20, 30];
 
-						console.log(d3Item);
+						if (!this.width) this.width = 420;
+						var x = d3.scale.linear()
+						.domain([0, d3.max(fakeData)])
+						.range(['0px', this.width + 'px']);
+
+						chart.selectAll('rect')
+						.data(fakeData)
+						.enter().append('rect')
+						.attr('y', function(d, i) { return i * 20; })
+						.attr('width', x)
+						.attr('height', 20)
+						.attr('dx', -3)
+						.attr('dy', '.35em')
+						.attr('text-anchor', 'end')
+						.text(String);
+
+
 					}
 				}
 			}
