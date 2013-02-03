@@ -201,8 +201,10 @@ define([
 
                         expect(d3Chart.setMargins).toHaveBeenCalledWith(optionsJSON.margins);
                     });
+                });
 
-                    it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends the identified model (HTML-friendly) to the selected-dom-element', function () {
+                describe('|---- actual work:', function() {
+                    it('given d3Chart.models.length > 0 AND optionsJSON with [selector: { string }, itemIndex: { integer }, modelIndex: { integer } ], it appends an [svg] element to the selected-dom-element', function () {
                         // prep: d3Chart.models.length > 0
                         var optionsJSON = {
                             dimensions: 2
@@ -243,9 +245,11 @@ define([
                         console.log(shouldBeSVGElement);
                         expect(shouldBeSVGElement).toBe('<svg');
                     });
-                });
 
-                
+                    it('given options to render a horizontal bar-chart, calls {d3 function} with [ arguments ], which according to d3 documentation, should append the identified model (svg+xml by d3)to the selected-dom-element', function() {
+                        expect(false).toBeTruthy();
+                    });
+                });
             });
         });
 	};
