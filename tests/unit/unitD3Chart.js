@@ -246,7 +246,7 @@ define([
                         expect(shouldBeSVGElement).toBe('<svg');
                     });
 
-                    it('given options to render a horizontal bar-chart, calls {d3 function} with [ arguments ], which according to d3 documentation, should append the identified model (svg+xml by d3)to the selected-dom-element', function() {
+                    it('given options to render a { orientation: horizontal } bar-chart, calls {d3 function} with [ arguments ], which according to d3 documentation, should append the identified model (svg+xml by d3)to the selected-dom-element', function() {
                         expect(false).toBeTruthy();
                     });
                 });
